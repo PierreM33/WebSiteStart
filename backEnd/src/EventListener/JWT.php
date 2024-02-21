@@ -23,8 +23,6 @@ class JWT
         //INFOS QUE JE RECUPERE DANS MA REQUETE DE LOGIN_CHECK
         $data['data'] = array(
             'roles' => $user->getRoles(),
-            'Id' => $user->getId(),
-            'planetId' => $user->getPlanetSelected() ? $user->getPlanetSelected()->getId() : null,
         );
 
         $event->setData($data);

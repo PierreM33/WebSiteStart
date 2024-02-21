@@ -12,7 +12,7 @@ security:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: username
+                property: email
                 # Utiliser le référentiel d'entité personnalisé pour l'entité User
                 manager_name: default
                 # Définir l'option manager_name sur le nom de votre entity manager si différent de "default"
@@ -25,7 +25,7 @@ security:
                 provider: app_user_provider
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-                username_path: username
+                username_path: email
                 password_path: password
 
         api:

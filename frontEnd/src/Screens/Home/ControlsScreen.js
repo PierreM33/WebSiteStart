@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
-import BlockBody from "../../Components/Body/BlockBody";
 import {getUser} from "../../Api/User";
+import {logout} from "../../Redux/actions/authActions";
 
-const BuildingScreen = ({ dispatch, Logger }) => {
-
+const ControlsScreen = ({ dispatch, Logger  }) => {
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', width: "100%", backgroundColor: "rgba(166,166,166,0)" }}>
+
+        <div style={{ display: 'flex', flexDirection: 'column', width: "100%", backgroundColor: "orange" }}>
 
         </div>
     );
@@ -27,4 +27,5 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BuildingScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ControlsScreen);
+

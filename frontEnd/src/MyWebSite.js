@@ -4,10 +4,7 @@ import WelcomeScreen from "./Screens/Welcome/WelcomeScreen";
 import {connect, useDispatch} from "react-redux";
 import {logout} from "./Redux/actions/authActions";
 import HomeScreen from "./Screens/Home/HomeScreen";
-import PopulationScreen from "./Screens/Population/PopulationScreen";
-import BuildingScreen from "./Screens/Batiment/BuildingScreen";
-import TechnologyScreen from "./Screens/Technology/TechnologyScreen";
-import ControlsScreen from "./Screens/Controls/ControlsScreen";
+import ControlsScreen from "./Screens/Home/ControlsScreen";
 
 function MyWebSite (props) {
 
@@ -15,12 +12,12 @@ function MyWebSite (props) {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={isAuthenticated ? <Navigate to="/controls" /> : <WelcomeScreen />} />
-                <Route path="*" element={isAuthenticated ? <Navigate to="/controls" /> : <WelcomeScreen />} />
+                <Route path="/" element={isAuthenticated ? <Navigate to="/" /> : <WelcomeScreen />} />
+                <Route path="*" element={isAuthenticated ? <Navigate to="/" /> : <WelcomeScreen />} />
                 <Route path="/controls" element={isAuthenticated ? <HomeScreen><ControlsScreen /></HomeScreen> : <Navigate to="/" />} />
-                <Route path="/population" element={isAuthenticated ? <HomeScreen><PopulationScreen /></HomeScreen> : <WelcomeScreen />} />
-                <Route path="/batiment" element={isAuthenticated ? <HomeScreen><BuildingScreen /></HomeScreen> : <WelcomeScreen />} />
-                <Route path="/technology" element={isAuthenticated ? <HomeScreen><TechnologyScreen /></HomeScreen> : <WelcomeScreen />} />
+                {/*<Route path="/population" element={isAuthenticated ? <HomeScreen><PopulationScreen /></HomeScreen> : <WelcomeScreen />} />*/}
+                {/*<Route path="/batiment" element={isAuthenticated ? <HomeScreen><BuildingScreen /></HomeScreen> : <WelcomeScreen />} />*/}
+                {/*<Route path="/technology" element={isAuthenticated ? <HomeScreen><TechnologyScreen /></HomeScreen> : <WelcomeScreen />} />*/}
             </Routes>
         </BrowserRouter>
     );

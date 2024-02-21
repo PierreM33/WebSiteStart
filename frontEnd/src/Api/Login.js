@@ -9,7 +9,7 @@ export const Login = async (data, loading, refresh = false) => {
     }
     try {
         const body = {
-            username: data.username,
+            email: data.email,
             password: data.password
         }
 

@@ -7,20 +7,20 @@ import {setUserData} from "../../Redux/actions/authActions";
 import ModalWelcome from "../../Components/Welcome/ModalWelcome";
 import Typewriter from 'typewriter-effect/dist/core';
 import Notifications from "../../Components/Utilities/Notifications";
+import ContainerGame from "../../Game/ContainerGame";
 
 const WelcomeScreen = ({ dispatch }) => {
 
     const [isVisible, setIsVisible] = useState(false)
     const [type, setType] = useState(null) // 1 = REGISTER / 2 = LOGIN
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [passwordSecond, setPasswordSecond] = useState("")
+    const [password, setPassword] = useState("test")
+    const [passwordSecond, setPasswordSecond] = useState("test")
     const [resultLogin, setResultLogin] = useState(null)
     const [loading, setLoading] = useState(false)
     const [disabled, setDisabled] = useState(true);
-    const [email, setEmail] = useState("")
+    const [email, setEmail] = useState("test@gmail.com")
     const [message, setMessage] = useState("")
-    const [isVisibleNotification, setIsVisibleNotification] = useState(true)
+    const [isVisibleNotification, setIsVisibleNotification] = useState(false)
     const [success, setSuccess] = useState(false)
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const WelcomeScreen = ({ dispatch }) => {
         } else {
             setDisabled(true);
         }
-    }, [username, password, passwordSecond]);
+    }, [password, passwordSecond]);
 
     useEffect( () => {
         if (resultLogin) {
@@ -51,6 +51,9 @@ const WelcomeScreen = ({ dispatch }) => {
                 setMessage("Inscription réussie")
                 setIsVisible(false)
                 setIsVisibleNotification(true)
+                setPassword("")
+                setEmail("")
+                setPasswordSecond("")
             } else {
                 setSuccess(false)
                 setMessage("Erreur lors de l'inscription")
@@ -60,17 +63,15 @@ const WelcomeScreen = ({ dispatch }) => {
         }
         if (type === 2) {
             const data = {
-                username: "pierre",
+                email: "pierre@test.fr",
                 password: "test"
             }
             const resultLogin = await Login(data, setLoading)
-            dispatch(setUserData(resultLogin.token, data.username, resultLogin.data.Id));
+            console.log("RESULTAT DU LOGIN -> ===", resultLogin)
+            dispatch(setUserData(resultLogin.token, email, resultLogin.data.Id));
 
         }
     }
-
-
-
 
     const onPress = (state) => {
         setIsVisible(true)
@@ -102,6 +103,7 @@ const WelcomeScreen = ({ dispatch }) => {
                 loading={loading}
                 disabled={disabled}
             />
+            <ContainerGame />
         </section>
     );
 };

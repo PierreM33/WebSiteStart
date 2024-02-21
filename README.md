@@ -78,5 +78,3 @@ updated: src/Entity/User.php
 
 
 ### HISTORIQUE
-
-J'en suis à l'update des ressources, et je dois faire l'update de la population
