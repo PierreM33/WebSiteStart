@@ -1,3 +1,4 @@
+test
 ### LANCEMENT DOCKER
 
 Dans le dossier Docker (docker-compose up --build)
@@ -70,9 +71,9 @@ updated: src/Entity/User.php
 
 ### QUAND JE FAIS DES MODIFICATIONS DANS LA DATABASE QUI CA NE VEUT PAS ETRE PRIS EN COMPTE EXECUTER CECI:
 
->php bin/console doctrine:database:drop --force
->php bin/console doctrine:database:create
->php bin/console doctrine:schema:update --force
+php bin/console doctrine:database:drop --force
+php bin/console doctrine:database:create
+php bin/console doctrine:schema:update --force
 
 
 

@@ -8,7 +8,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mySiteWeb
+      MYSQL_DATABASE: NouveauNom
       MYSQL_USER: pierre
       MYSQL_PASSWORD: test
     volumes:
@@ -48,9 +48,10 @@ services:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     environment:
-      PMA_HOST: database
-      PMA_USER: root
-      PMA_PASSWORD: root
+       PMA_ARBITRARY: 1
+#      PMA_HOST: database
+#      PMA_USER: root
+#      PMA_PASSWORD: root
     ports:
       - '8081:80'
     depends_on:
